@@ -36,6 +36,25 @@ heuristica_bucareste = {
     'Timisoara': 329, 'Urziceni': 80, 'Vaslui': 199, 'Zerind': 374
 }
 
+def estradas(mapa_estradas):
+    menos_estradas = min(mapa_estradas.values())
+    mais_estradas = max(mapa_estradas.values())
+
+    cidades_com_mais = [chave for chave, valor in mapa_estradas.items() if valor == mais_estradas]
+    cidades_com_menos = [chave for chave, valor in mapa_estradas.items() if valor == menos_estradas]
+
+    return cidades_com_mais, cidades_com_menos
+
+def grau(grafo):
+    vizinhos_cidade = {}
+    for cidade, vizinhos in grafo.items():
+        vizinhos_cidade[cidade] = len(vizinhos)
+
+    mais_estradas, menos_estradas = estradas(vizinhos_cidade)
+    print(f'Cidade com mais estrada: {mais_estradas} \n Cidade com menos estradas: {menos_estradas}')
+    return vizinhos_cidade
+    
+
 def vizinhos_de(grafo, cidade):
     return grafo.get(cidade, [])
 
@@ -61,6 +80,11 @@ if __name__ == '__main__':
 
     print(custo_do_caminho(mapa_romenia, ['Arad', 'Sibiu', 'Rimnicu Vilcea', 'Pitesti', 'Bucharest']))
 
+    vizinhos_por_cidade = grau(mapa_romenia)
+    print(vizinhos_por_cidade)
+
+
+
 
 fronteira = [
     (366, 'Arad'),
@@ -70,16 +94,16 @@ fronteira = [
 ]
 
 fronteira.sort(key=lambda item: item[0])
-print(fronteira[0])
+# print(fronteira[0])
 
 melhor = fronteira.pop(0)
-print(melhor, len(fronteira))
+# print(melhor, len(fronteira))
 
 def chave(item):
     return item[0]
 
 fronteira.sort(key=chave)
 
-print(fronteira)
+# print(fronteira)
 
-print(sorted(fronteira, key=lambda item: item[1]))
+# print(sorted(fronteira, key=lambda item: item[1]))
