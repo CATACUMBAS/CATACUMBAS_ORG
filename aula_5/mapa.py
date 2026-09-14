@@ -35,24 +35,6 @@ heuristica_bucareste = {
     'Oradea': 380, 'Pitesti': 100, 'Rimnicu Vilcea': 193, 'Sibiu': 253,
     'Timisoara': 329, 'Urziceni': 80, 'Vaslui': 199, 'Zerind': 374
 }
-
-def estradas(mapa_estradas):
-    menos_estradas = min(mapa_estradas.values())
-    mais_estradas = max(mapa_estradas.values())
-
-    cidades_com_mais = [chave for chave, valor in mapa_estradas.items() if valor == mais_estradas]
-    cidades_com_menos = [chave for chave, valor in mapa_estradas.items() if valor == menos_estradas]
-
-    return cidades_com_mais, cidades_com_menos
-
-def grau(grafo):
-    vizinhos_cidade = {}
-    for cidade, vizinhos in grafo.items():
-        vizinhos_cidade[cidade] = len(vizinhos)
-
-    mais_estradas, menos_estradas = estradas(vizinhos_cidade)
-    print(f'Cidade com mais estrada: {mais_estradas} \n Cidade com menos estradas: {menos_estradas}')
-    return vizinhos_cidade
     
 
 def vizinhos_de(grafo, cidade):
@@ -79,9 +61,6 @@ if __name__ == '__main__':
     print(custo_do_caminho(mapa_romenia, ['Arad', 'Sibiu', 'Fagaras', 'Bucharest']))
 
     print(custo_do_caminho(mapa_romenia, ['Arad', 'Sibiu', 'Rimnicu Vilcea', 'Pitesti', 'Bucharest']))
-
-    vizinhos_por_cidade = grau(mapa_romenia)
-    print(vizinhos_por_cidade)
 
 
 
