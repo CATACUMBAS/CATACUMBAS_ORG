@@ -72,3 +72,8 @@ for estradas, cidades in resultado.items():
     print(f"Com exatas {estradas} estrada(s) você chega em: {cidades}")
 
 print(f'\né simetrico? {verificar_simetria(mapa_romenia)}')
+
+'''
+ 6 - A principal diferença é que append modifica a lista original enquanto 'caminho + [vizinho];' cria uma copia, justamente se voce quer preservar os dados originais o aconselhavel é usar a segunda opcção mas se quiser performance e 'economia' de memoria o melhor seria a primeira opção
+
+'''

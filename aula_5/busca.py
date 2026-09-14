@@ -3,6 +3,7 @@ from mapa import mapa_romenia
 def busca_generica(grafo, inicio, objetivo):
     fronteira = [(0, inicio, [inicio])]
     visitados = set()
+    contador_no = 0
 
     while fronteira:
         fronteira.sort(key=lambda item: item[0])
