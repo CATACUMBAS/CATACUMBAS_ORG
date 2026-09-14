@@ -45,6 +45,24 @@ def cidades_alcancaveis(grafo, inicio, k):
 
     return alcance
 
+def verificar_simetria(grafo):
+    for a, conexao in grafo.items():
+        for b, peso in conexao:
+            if b not in grafo:
+                return False
+
+            caminho_volta = any(
+                origem == a and peso_volta == peso
+                for origem, peso_volta in grafo[a]
+            )
+
+            if not caminho_volta:
+                return False
+
+    return True
+
+
+
 vizinhos_por_cidade = grau(mapa_romenia)
 print(vizinhos_por_cidade)
 
@@ -53,3 +71,4 @@ resultado = cidades_alcancaveis(mapa_romenia, 'Arad', 2)
 for estradas, cidades in resultado.items():
     print(f"Com exatas {estradas} estrada(s) você chega em: {cidades}")
 
+print(f'\né simetrico? {verificar_simetria(mapa_romenia)}')

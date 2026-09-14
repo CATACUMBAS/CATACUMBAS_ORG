@@ -21,7 +21,7 @@ def busca_generica(grafo, inicio, objetivo):
                     )
     return None, float('inf')
 
-    if __name__ == '__main__':
-        caminho, custo = busca_generica(mapa_romenia, 'Arad', 'Bucharest')
-        print(' -> '.join(caminho))
-        print(f'{custo} km em {len(caminho) - 1} passos')
+if __name__ == '__main__':
+    caminho, custo = busca_generica(mapa_romenia, 'Arad', 'Bucharest')
+    print(' -> '.join(caminho))
+    print(f'{custo} km em {len(caminho) - 1} passos')
