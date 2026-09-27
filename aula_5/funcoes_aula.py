@@ -63,13 +63,13 @@ def verificar_simetria(grafo):
 
 
 
-vizinhos_por_cidade = grau(mapa_romenia)
-print(vizinhos_por_cidade)
+# vizinhos_por_cidade = grau(mapa_romenia)
+# print(vizinhos_por_cidade)
 
-resultado = cidades_alcancaveis(mapa_romenia, 'Arad', 2)
+# resultado = cidades_alcancaveis(mapa_romenia, 'Arad', 2)
 
-for estradas, cidades in resultado.items():
-    print(f"Com exatas {estradas} estrada(s) você chega em: {cidades}")
+# for estradas, cidades in resultado.items():
+#      print(f"\nCom exatas {estradas} estrada(s) você chega em: {cidades}")
 
 print(f'\né simetrico? {verificar_simetria(mapa_romenia)}')
 
